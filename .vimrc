@@ -7,6 +7,9 @@ set nocompatible
 set autoindent
 set smartindent
 
+" enable status bar
+set laststatus=2  
+
 " ignore case when searching
 set ignorecase
 
@@ -26,8 +29,36 @@ set softtabstop=4
 set expandtab
 
 " color
-colors made_of_code 
+set background=dark
+colors made_of_code
 
 nmap <F1> :w<CR>
 imap <F1> <Esc>:w<CR>
+
+imap jjj <Esc>
+
+" ---- plugins ----
+call plug#begin('~/.vim/plugged')
+
+" nerdtree
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'mattn/emmet-vim'
+Plug 'itchyny/lightline.vim'
+
+call plug#end()
+
+" nerdtree toggle
+map <C-o> :NERDTreeToggle<CR>
+
+" remove -- (mode) --
+set noshowmode
+
+" quick scrolling 
+noremap <C-k> 5k
+noremap <C-j> 5j
+
+let g:lightline = { 'colorscheme': 'wombat' }
+
+
+
 
