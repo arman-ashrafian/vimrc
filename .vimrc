@@ -30,35 +30,46 @@ set expandtab
 
 " color
 set background=dark
-colors made_of_code
+colors molokai 
 
+" -------------- Key Bindings -------------
+" F1 to save
 nmap <F1> :w<CR>
 imap <F1> <Esc>:w<CR>
 
-imap jjj <Esc>
+" jj to get back to Normal 
+imap jj <Esc>
 
-" ---- plugins ----
+" <C-h> to remove highlighted words
+nmap <C-h> :noh<CR>
+
+" nerdtree toggle
+map <C-o> :NERDTreeToggle<CR>
+
+" quick scrolling 
+noremap <C-k> 5k
+noremap <C-j> 5j
+" -----------------------------------------
+
+
+" -------------- Plugins ------------------
 call plug#begin('~/.vim/plugged')
 
 " nerdtree
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'mattn/emmet-vim'
 Plug 'itchyny/lightline.vim'
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 call plug#end()
-
-" nerdtree toggle
-map <C-o> :NERDTreeToggle<CR>
+" -----------------------------------------
 
 " remove -- (mode) --
 set noshowmode
 
-" quick scrolling 
-noremap <C-k> 5k
-noremap <C-j> 5j
-
 let g:lightline = { 'colorscheme': 'wombat' }
 
-
+" vix highlight error in .go files
+let g:go_highlight_trailing_whitespace_error=0
 
 
